@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f970d10d6002108417121ca6b3bf63c",
+    "content-hash": "48b820f50d98538f731c3ae35ec41cdf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1238,6 +1238,64 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.6.2"
             },
             "time": "2021-09-28T15:47:34+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "07d725813350c695c779382cbd6dac0ab8665537"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/07d725813350c695c779382cbd6dac0ab8665537",
+                "reference": "07d725813350c695c779382cbd6dac0ab8665537",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.42",
+                "illuminate/filesystem": "^8.42",
+                "illuminate/support": "^8.42",
+                "illuminate/validation": "^8.42",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/ui/tree/v3.3.0"
+            },
+            "time": "2021-05-25T16:45:33+00:00"
         },
         {
             "name": "league/commonmark",
@@ -7918,6 +7976,69 @@
                 }
             ],
             "time": "2021-07-28T10:34:58+00:00"
+        },
+        {
+            "name": "vikdiesel/admin-one-laravel-dashboard",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vikdiesel/admin-one-laravel-dashboard.git",
+                "reference": "24388617793f77ec02f440aec19220cf28ddbbda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vikdiesel/admin-one-laravel-dashboard/zipball/24388617793f77ec02f440aec19220cf28ddbbda",
+                "reference": "24388617793f77ec02f440aec19220cf28ddbbda",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0",
+                "laravel/ui": "^3.2",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AdminOneLaravelDashboard\\Package\\PackageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AdminOneLaravelDashboard\\Package\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JustBoil.me",
+                    "email": "viktor@justboil.me",
+                    "homepage": "https://justboil.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Admin One - Laravel Dashboard Preset (SPA)",
+            "homepage": "https://github.com/vikdiesel/admin-one-laravel-dashboard",
+            "keywords": [
+                "SPA",
+                "bulma",
+                "dashboard",
+                "laravel",
+                "preset",
+                "template",
+                "vue",
+                "vue-js",
+                "vuex"
+            ],
+            "support": {
+                "issues": "https://github.com/vikdiesel/admin-one-laravel-dashboard/issues",
+                "source": "https://github.com/vikdiesel/admin-one-laravel-dashboard/tree/v1.5.1"
+            },
+            "time": "2021-02-17T09:03:25+00:00"
         }
     ],
     "aliases": [],
