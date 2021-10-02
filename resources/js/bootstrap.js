@@ -48,15 +48,18 @@ if (token) {
 * We'll add interceptors to redirect user to login once we get 401 response
 * */
 
-window.axios.interceptors.response.use(function (response) {
-  return response;
-}, function (error) {
-  if (error.response.status === 401) {
-    window.location.href = '/login'
-  }
+window.axios.interceptors.response.use(
+    function (response) {
+        return response;
+    },
+    function (error) {
+        if (error.response.status === 401) {
+            window.location.href = '/login'
+        }
 
-  return Promise.reject(error);
-});
+        return Promise.reject(error);
+    }
+);
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
