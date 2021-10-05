@@ -25,7 +25,7 @@ class ApiController extends BaseController
         $response = [
         'status_code' => $statusCode,
         ];
-        $response = array_merge($response, $message->toArray(), $additionalData );
+        $response = array_merge($response, $message->toArray(), $additionalData);
 
         return response()->json($response, $httpCode);
     }
