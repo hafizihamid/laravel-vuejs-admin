@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get(
-    '/',
-    function () {
-        return view('welcome');
-    }
-);
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('admin/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('password/reset', [AuthController::class, 'reset'])->name('reset');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Route::get(
+//     '/login',
+//     function () {
+//         return view('auth.login');
+//     }
+// );
+
+// Route::post('/login', 'AuthController@login')->name('login');
 
 // Auth::routes();
 
@@ -53,3 +63,9 @@ Route::get(
  * File upload (e.g. avatar)
  * */
 // Route::post('/files/store', [\App\Http\Controllers\FilesController::class, 'store']);
+
+// Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
+
+// Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+// Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,17 +22,18 @@ use Illuminate\Support\Facades\Route;
 //     }
 // );
 
-Route::group(
-    ['namespace' => 'Api', 'as' => 'api.', 'prefix' => 'v1'],
-    function () {
-        Route::post('/login', 'AuthController@login')->name('login');
-        Route::group(
-            ['prefix' => 'password', 'as' => 'password.'],
-            function () {
-                Route::post('/email', 'AuthController@forgot')->name('forgot');
-                Route::post('/reset', 'AuthController@reset')->name('reset');
-                Route::post('/set', 'UserController@setPassword')->name('set');
-            }
-        );
-    }
-);
+// Route::group(
+//     ['namespace' => 'Api', 'as' => 'api.', 'prefix' => 'v1'],
+//     function () {
+
+//         Route::post('/login', [AuthController::class, 'login']);
+//         Route::group(
+//             ['prefix' => 'password', 'as' => 'password.'],
+//             function () {
+//                 Route::post('/email', 'AuthController@forgot')->name('forgot');
+//                 Route::post('/reset', 'AuthController@reset')->name('reset');
+//                 Route::post('/set', 'UserController@setPassword')->name('set');
+//             }
+//         );
+//     }
+// );

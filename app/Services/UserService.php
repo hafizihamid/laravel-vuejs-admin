@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\User;
+use App\Models\Member;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use DB;
@@ -21,21 +21,8 @@ class UserService extends BaseService
 
         $user = auth()->user();
 
-        if ($user->is_disabled) {
-            return $this->formatGeneralResponse(
-                config('staticdata.messages.user_disabled'),
-                config('staticdata.status_codes.forbidden'),
-                config('staticdata.http_codes.forbidden')
-            );
-        }
-
-        $accessToken = $user->createToken('authToken')->accessToken;
-
-        $userArray = $this->getUserWithRolesPermissions($user);
-
         $data = [
-            'user' => $userArray,
-            'accessToken' => $accessToken
+            'user' => 'test',
         ];
 
         return $this->formatGeneralResponse(
@@ -43,6 +30,52 @@ class UserService extends BaseService
             config('staticdata.status_codes.ok'),
             config('staticdata.http_codes.success')
         );
+
+
+
+//     $users = Member::where(DB::raw('length(password)'), '<', 60)->get();
+//     foreach($users as $user)
+// {
+//     $user->password = Hash::make($user->password);
+//     $user->save();
+// }
+
+// dd($users);
+
+
+
+
+//         $user = Member::where(
+//             [
+//             'username' => $credentials['username'],
+//             'password' => $credentials['password']
+//             ]
+//         )->first();
+
+    
+
+       
+
+
+        // $user = auth()->user();
+        // dd($user);
+
+        // if ($user->is_disabled) {
+        //     return $this->formatGeneralResponse(
+        //         config('staticdata.messages.user_disabled'),
+        //         config('staticdata.status_codes.forbidden'),
+        //         config('staticdata.http_codes.forbidden')
+        //     );
+        // }
+
+        // $accessToken = $user->createToken('authToken')->accessToken;
+
+        // $userArray = $this->getUserWithRolesPermissions($user);
+
+        // $data = [
+        //     'user' => $userArray,
+        //     'accessToken' => $accessToken
+        // ];
     }
 
     public function getUserWithRolesPermissions($user)
