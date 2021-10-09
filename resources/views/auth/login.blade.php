@@ -47,8 +47,8 @@
             {{ __('Login') }}
         </button>
 
-        @if (Route::has('reset'))
-        <a class="button is-black is-outlined" href="{{ route('reset') }}">
+        @if (Route::has('password.email'))
+        <a class="button is-black is-outlined" href="{{ route('password.email') }}">
             {{ __('Forgot Your Password?') }}
         </a>
         @endif

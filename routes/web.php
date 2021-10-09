@@ -16,9 +16,23 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('admin/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('password/reset', [AuthController::class, 'reset'])->name('reset');
+
+
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Route::get('password/email', [AuthController::class, 'forgot'])->name('password.email');
+Route::get('password/email', [AuthController::class, 'forgot'])->name('password.email');
+Route::get('password/update', [AuthController::class, 'set'])->name('password.update');
+
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
 // Route::get(

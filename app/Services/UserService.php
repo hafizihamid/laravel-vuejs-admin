@@ -78,17 +78,17 @@ class UserService extends BaseService
         // ];
     }
 
-    public function getUserWithRolesPermissions($user)
-    {
-        $userArray = $user->toArray();
+    // public function getUserWithRolesPermissions($user)
+    // {
+    //     $userArray = $user->toArray();
 
-        $roles = $user->roles->pluck('name');
-        $permissions = ($user->getAllPermissions()->pluck('name'));
-        $userArray['roles'] = $roles;
-        $userArray['permissions'] = $permissions;
+    //     $roles = $user->roles->pluck('name');
+    //     $permissions = ($user->getAllPermissions()->pluck('name'));
+    //     $userArray['roles'] = $roles;
+    //     $userArray['permissions'] = $permissions;
 
-        return $userArray;
-    }
+    //     return $userArray;
+    // }
 
     public function forgot($credentials)
     {

@@ -45,6 +45,16 @@ class AuthController extends ApiController
             return redirect()->intended('home');
     }
 
+    public function forgot()
+    {
+        return view('auth.passwords.email');
+    }
+
+        public function set()
+    {
+        return view('auth.passwords.reset');
+    }
+
     // public function logout()
     // {
     //     if (auth()->check()) {
