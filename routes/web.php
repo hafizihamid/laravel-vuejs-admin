@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,25 +15,54 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('admin/login', [AuthController::class, 'login'])->name('auth.login');
+
+Route::get('login', [LoginController::class, 'showLoginPasswordForm'])->name('login');
+Route::post('login', [LoginController::class, 'submitLoginPasswordForm'])->name('auth.login');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('forgot-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forgot-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
+
+// ADD MIDDLEWARE
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
 
-Route::get('password/email', [AuthController::class, 'forgot'])->name('password.email');
-Route::get('password/email', [AuthController::class, 'forgot'])->name('password.email');
-Route::get('password/update', [AuthController::class, 'set'])->name('password.update');
 
 
-Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+
+// Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+// Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+// Route::get('/', [AuthController::class, 'index'])->name('auth.login');
+// Route::post('admin/login', [AuthController::class, 'login'])->name('auth.login');
+
+
+// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
+// Route::get('password/email', [AuthController::class, 'forgot'])->name('password.email');
+// Route::get('password/email', [AuthController::class, 'forgot'])->name('password.email');
+// Route::get('password/update', [AuthController::class, 'set'])->name('password.update');
+
+
+// Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+// Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+// Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+// Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
 // Route::get(
