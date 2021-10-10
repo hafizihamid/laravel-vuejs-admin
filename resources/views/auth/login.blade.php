@@ -3,6 +3,12 @@
 @section('content')
 @component('components.full-page-section')
 
+@isset($message)
+<div class="notification is-success" role="alert">
+    {{ $message }}
+</div>
+@endif
+
 
 
 @component('components.card')
@@ -47,8 +53,8 @@
             {{ __('Login') }}
         </button>
 
-        @if (Route::has('password.email'))
-        <a class="button is-black is-outlined" href="{{ route('password.email') }}">
+        @if (Route::has('forget.password.get'))
+        <a class="button is-black is-outlined" href="{{ route('forget.password.get') }}">
             {{ __('Forgot Your Password?') }}
         </a>
         @endif
