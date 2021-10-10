@@ -8,10 +8,10 @@
 <span>{{ __('Reset Password') }}</span>
 @endslot
 
-<form method="POST" action="{{ route('password.update') }}">
+<form method="POST" action="{{ route('reset.password.post', ['token' => $token]) }}">
     @csrf
 
-    {{-- <input type="hidden" name="token" value="{{ $token }}"> --}}
+    <input type="hidden" name="token" value="{{ $token }}">
 
     <div class="field">
         <label class="label" for="email">{{ __('E-Mail Address') }}</label>
