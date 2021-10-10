@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use DB;
 
-class UserService extends BaseService
+class MemberService extends BaseService
 {
     public function login($credentials)
     {
