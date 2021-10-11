@@ -34,6 +34,20 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 // ADD MIDDLEWARE
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/*
+ * Clients management
+ * */
+Route::prefix('/sales')->group(
+    function () {
+        Route::get('/', [\App\Http\Controllers\ClientsController::class, 'index']);
+        // Route::get('/{client}', [\App\Http\Controllers\ClientsController::class, 'show']);
+        // Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
+        // Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);
+        // Route::post('/destroy', [\App\Http\Controllers\ClientsController::class, 'destroyMass']);
+        // Route::delete('/{client}/destroy', [\App\Http\Controllers\ClientsController::class, 'destroy']);
+    }
+);
+
 
 
 
