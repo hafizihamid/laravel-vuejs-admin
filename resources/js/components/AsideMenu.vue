@@ -1,22 +1,20 @@
 <template>
-  <aside
-      v-show="isAsideVisible"
-      class="aside is-placed-left is-expanded">
+  <aside v-show="isAsideVisible" class="aside is-placed-left is-expanded">
     <aside-tools :is-main-menu="true">
       <span slot="label">
-        <b>Admin</b> One
+        <b>Lazic beauty</b>
       </span>
     </aside-tools>
     <div class="menu is-menu-main">
-      <template v-for="(menuGroup, index) in menu" >
+      <template v-for="(menuGroup, index) in menu">
         <p v-if="typeof menuGroup === 'string'" :key="index" class="menu-label">
           {{ menuGroup }}
         </p>
         <aside-menu-list
-            v-else
-            :key="index"
+          v-else
+          :key="index"
           :menu="menuGroup"
-            @menu-click="menuClick"
+          @menu-click="menuClick"
         />
       </template>
     </div>
@@ -24,12 +22,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import AsideTools from '@/components/AsideTools'
-import AsideMenuList from '@/components/AsideMenuList'
+import { mapState } from "vuex";
+import AsideTools from "@/components/AsideTools";
+import AsideMenuList from "@/components/AsideMenuList";
 
 export default {
-  name: 'AsideMenu',
+  name: "AsideMenu",
   components: { AsideTools, AsideMenuList },
   props: {
     menu: {
@@ -38,14 +36,12 @@ export default {
     }
   },
   computed: {
-    ...mapState([
-      'isAsideVisible'
-    ])
+    ...mapState(["isAsideVisible"])
   },
   methods: {
-    menuClick (item) {
+    menuClick(item) {
       //
     }
   }
-}
+};
 </script>

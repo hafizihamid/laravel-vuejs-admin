@@ -2082,7 +2082,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'home',
+  name: "home",
   components: {
     FooterBar: _components_FooterBar__WEBPACK_IMPORTED_MODULE_2__["default"],
     AsideMenu: _components_AsideMenu__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2090,58 +2090,58 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     menu: function menu() {
-      return ['General', [{
-        to: '/',
-        icon: 'desktop-mac',
-        label: 'Dashboard'
-      }], 'Resource', [{
-        to: '/clients/index',
-        label: 'Clients',
-        icon: 'account-multiple',
+      return ["General", [{
+        to: "/",
+        icon: "desktop-mac",
+        label: "Dashboard"
+      }], "Resource", [{
+        to: "/clients/index",
+        label: "Clients",
+        icon: "account-multiple",
         updateMark: true
-      }], 'Examples', [{
-        to: '/tables',
-        label: 'Tables',
-        icon: 'table'
+      }], "Examples", [{
+        to: "/tables",
+        label: "Tables",
+        icon: "table"
       }, {
-        to: '/forms',
-        label: 'Forms',
-        icon: 'square-edit-outline'
+        to: "/forms",
+        label: "Forms",
+        icon: "square-edit-outline"
       }, {
-        to: '/profile',
-        label: 'Profile',
-        icon: 'account-circle'
+        to: "/profile",
+        label: "Profile",
+        icon: "account-circle"
       }, {
-        label: 'Submenus',
-        subLabel: 'Submenus Example',
-        icon: 'view-list',
+        label: "Submenus",
+        subLabel: "Submenus Example",
+        icon: "view-list",
         menu: [{
-          href: '#void',
-          label: 'Sub-item One'
+          href: "#void",
+          label: "Sub-item One"
         }, {
-          href: '#void',
-          label: 'Sub-item Two'
+          href: "#void",
+          label: "Sub-item Two"
         }]
-      }], 'About', [{
-        href: 'https://admin-one-laravel.justboil.me',
-        label: 'Premium Demo',
-        icon: 'credit-card'
+      }], "About", [{
+        href: "https://admin-one-laravel.justboil.me",
+        label: "Premium Demo",
+        icon: "credit-card"
       }, {
-        href: 'https://justboil.me/bulma-admin-template/one',
-        label: 'About',
-        icon: 'help-circle'
+        href: "https://justboil.me/bulma-admin-template/one",
+        label: "About",
+        icon: "help-circle"
       }]];
     }
   },
   created: function created() {
     var _this = this;
 
-    axios.get('/user').then(function (r) {
-      _this.$store.commit('user', r.data.data);
+    axios.get("/user").then(function (r) {
+      _this.$store.commit("user", r.data.data);
     })["catch"](function (err) {
       _this.$buefy.toast.open({
         message: "Error: ".concat(err.message),
-        type: 'is-danger'
+        type: "is-danger"
       });
     });
   }
@@ -2192,13 +2192,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'AsideMenu',
+  name: "AsideMenu",
   components: {
     AsideTools: _components_AsideTools__WEBPACK_IMPORTED_MODULE_0__["default"],
     AsideMenuList: _components_AsideMenuList__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -2211,7 +2209,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(['isAsideVisible'])),
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(["isAsideVisible"])),
   methods: {
     menuClick: function menuClick(item) {//
     }
@@ -2732,6 +2730,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3048,11 +3052,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'NavBar',
+  name: "NavBar",
   components: {
     UserAvatar: _components_UserAvatar__WEBPACK_IMPORTED_MODULE_1__["default"],
     NavBarMenu: _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -3064,12 +3089,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({
     menuNavBarToggleIcon: function menuNavBarToggleIcon() {
-      return this.isMenuNavBarActive ? 'close' : 'dots-vertical';
+      return this.isMenuNavBarActive ? "close" : "dots-vertical";
     },
     menuToggleMobileIcon: function menuToggleMobileIcon() {
-      return this.isAsideMobileExpanded ? 'backburger' : 'forwardburger';
+      return this.isAsideMobileExpanded ? "backburger" : "forwardburger";
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(['isNavBarVisible', 'isAsideMobileExpanded', 'userName'])),
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(["isNavBarVisible", "isAsideMobileExpanded", "userName"])),
   mounted: function mounted() {
     var _this = this;
 
@@ -3079,13 +3104,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     menuToggleMobile: function menuToggleMobile() {
-      this.$store.commit('asideMobileStateToggle');
+      this.$store.commit("asideMobileStateToggle");
     },
     menuNavBarToggle: function menuNavBarToggle() {
       this.isMenuNavBarActive = !this.isMenuNavBarActive;
     },
     logout: function logout() {
-      document.getElementById('logout-form').submit();
+      document.getElementById("logout-form").submit();
     }
   }
 });
@@ -3367,6 +3392,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // @ is an alias to /src
 
 
@@ -3377,7 +3432,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'home',
+  name: "home",
   components: {
     ClientsTableSample: _components_ClientsTableSample__WEBPACK_IMPORTED_MODULE_7__["default"],
     LineChart: _components_Charts_LineChart__WEBPACK_IMPORTED_MODULE_6__["default"],
@@ -3397,13 +3452,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     titleStack: function titleStack() {
-      return ['Admin', 'Dashboard'];
+      return ["Admin", "Dashboard"];
     }
   },
   mounted: function mounted() {
     this.fillChartData();
     this.$buefy.snackbar.open({
-      message: 'Welcome back',
+      message: "Welcome back",
       queue: false
     });
   },
@@ -3426,7 +3481,7 @@ __webpack_require__.r(__webpack_exports__);
           borderDash: [],
           borderDashOffset: 0.0,
           pointBackgroundColor: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_0__.chartColors["default"].primary,
-          pointBorderColor: 'rgba(255,255,255,0)',
+          pointBorderColor: "rgba(255,255,255,0)",
           pointHoverBackgroundColor: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_0__.chartColors["default"].primary,
           pointBorderWidth: 20,
           pointHoverRadius: 4,
@@ -3440,7 +3495,7 @@ __webpack_require__.r(__webpack_exports__);
           borderDash: [],
           borderDashOffset: 0.0,
           pointBackgroundColor: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_0__.chartColors["default"].info,
-          pointBorderColor: 'rgba(255,255,255,0)',
+          pointBorderColor: "rgba(255,255,255,0)",
           pointHoverBackgroundColor: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_0__.chartColors["default"].info,
           pointBorderWidth: 20,
           pointHoverRadius: 4,
@@ -3454,7 +3509,7 @@ __webpack_require__.r(__webpack_exports__);
           borderDash: [],
           borderDashOffset: 0.0,
           pointBackgroundColor: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_0__.chartColors["default"].danger,
-          pointBorderColor: 'rgba(255,255,255,0)',
+          pointBorderColor: "rgba(255,255,255,0)",
           pointHoverBackgroundColor: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_0__.chartColors["default"].danger,
           pointBorderWidth: 20,
           pointHoverRadius: 4,
@@ -3462,7 +3517,7 @@ __webpack_require__.r(__webpack_exports__);
           pointRadius: 4,
           data: this.randomChartData(9)
         }],
-        labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09']
+        labels: ["01", "02", "03", "04", "05", "06", "07", "08", "09"]
       };
     }
   }
@@ -66918,8 +66973,7 @@ var render = function() {
     [
       _c("aside-tools", { attrs: { "is-main-menu": true } }, [
         _c("span", { attrs: { slot: "label" }, slot: "label" }, [
-          _c("b", [_vm._v("Admin")]),
-          _vm._v(" One\n    ")
+          _c("b", [_vm._v("Lazic beauty")])
         ])
       ]),
       _vm._v(" "),
@@ -67547,7 +67601,22 @@ var render = function() {
       ],
       staticClass: "footer"
     },
-    [_vm._m(0)]
+    [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "level" }, [
+          _c("div", { staticClass: "level-left" }, [
+            _c("div", { staticClass: "level-item" }, [
+              _c("div", { staticClass: "footer-copyright" }, [
+                _c("b", [_vm._v("© " + _vm._s(_vm.year) + ", JustBoil.me")]),
+                _vm._v(" — Admin One Demo\n          ")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]
   )
 }
 var staticRenderFns = [
@@ -67555,17 +67624,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "level" }, [
-        _c("div", { staticClass: "level-left" }, [
-          _c("div", { staticClass: "level-item" }, [
-            _c("div", { staticClass: "footer-copyright" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "level-right" }, [
-          _c("div", { staticClass: "level-item" }, [
-            _c("div", { staticClass: "logo" })
+    return _c("div", { staticClass: "level-right" }, [
+      _c("div", { staticClass: "level-item" }, [
+        _c("div", { staticClass: "logo" }, [
+          _c("a", { attrs: { href: "https://justboil.me" } }, [
+            _c("img", {
+              attrs: { src: "/images/justboil-logo.svg", alt: "JustBoil.me" }
+            })
           ])
         ])
       ])
@@ -67815,225 +67880,24 @@ var render = function() {
           class: { "is-active": _vm.isMenuNavBarActive }
         },
         [
-          _c(
-            "div",
-            { staticClass: "navbar-end" },
-            [
-              _c(
-                "nav-bar-menu",
-                { staticClass: "has-divider" },
-                [
-                  _c("b-icon", {
-                    attrs: { icon: "menu", "custom-size": "default" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Sample Menu")]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "navbar-dropdown",
-                      attrs: { slot: "dropdown" },
-                      slot: "dropdown"
-                    },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "navbar-item",
-                          attrs: {
-                            to: "/profile",
-                            "exact-active-class": "is-active"
-                          }
-                        },
-                        [
-                          _c("b-icon", {
-                            attrs: { icon: "account", "custom-size": "default" }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("My Profile")])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        { staticClass: "navbar-item" },
-                        [
-                          _c("b-icon", {
-                            attrs: {
-                              icon: "settings",
-                              "custom-size": "default"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Settings")])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        { staticClass: "navbar-item" },
-                        [
-                          _c("b-icon", {
-                            attrs: { icon: "email", "custom-size": "default" }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Messages")])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("hr", { staticClass: "navbar-divider" }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        { staticClass: "navbar-item" },
-                        [
-                          _c("b-icon", {
-                            attrs: { icon: "logout", "custom-size": "default" }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Log Out")])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "nav-bar-menu",
-                { staticClass: "has-divider has-user-avatar" },
-                [
-                  _c("user-avatar"),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "is-user-name" }, [
-                    _c("span", [_vm._v(_vm._s(_vm.userName))])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "navbar-dropdown",
-                      attrs: { slot: "dropdown" },
-                      slot: "dropdown"
-                    },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "navbar-item",
-                          attrs: {
-                            to: "/profile",
-                            "exact-active-class": "is-active"
-                          }
-                        },
-                        [
-                          _c("b-icon", {
-                            attrs: { icon: "account", "custom-size": "default" }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("My Profile")])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        { staticClass: "navbar-item" },
-                        [
-                          _c("b-icon", {
-                            attrs: {
-                              icon: "settings",
-                              "custom-size": "default"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Settings")])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        { staticClass: "navbar-item" },
-                        [
-                          _c("b-icon", {
-                            attrs: { icon: "email", "custom-size": "default" }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Messages")])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("hr", { staticClass: "navbar-divider" }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        { staticClass: "navbar-item" },
-                        [
-                          _c("b-icon", {
-                            attrs: { icon: "logout", "custom-size": "default" }
-                          }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Log Out")])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item has-divider is-desktop-icon-only",
-                  attrs: {
-                    href: "https://justboil.me/bulma-admin-template/one",
-                    title: "About"
-                  }
-                },
-                [
-                  _c("b-icon", {
-                    attrs: {
-                      icon: "help-circle-outline",
-                      "custom-size": "default"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("About")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item is-desktop-icon-only",
-                  attrs: { title: "Log out" },
-                  on: { click: _vm.logout }
-                },
-                [
-                  _c("b-icon", {
-                    attrs: { icon: "logout", "custom-size": "default" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Log out")])
-                ],
-                1
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "navbar-end" }, [
+            _c(
+              "a",
+              {
+                staticClass: "navbar-item is-desktop-icon-only",
+                attrs: { title: "Log out" },
+                on: { click: _vm.logout }
+              },
+              [
+                _c("b-icon", {
+                  attrs: { icon: "logout", "custom-size": "default" }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Log out")])
+              ],
+              1
+            )
+          ])
         ]
       )
     ]
@@ -68047,14 +67911,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "navbar-item has-control no-left-space-touch" },
-      [
-        _c("div", { staticClass: "control" }, [
-          _c("input", {
-            staticClass: "input",
-            attrs: { placeholder: "Search everywhere..." }
-          })
-        ])
-      ]
+      [_c("div", { staticClass: "control" })]
     )
   }
 ]
@@ -68146,30 +68003,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "level-right" }, [
-        _c("div", { staticClass: "level-item" }, [
-          _c("div", { staticClass: "buttons is-right" }, [
-            _c(
-              "a",
-              {
-                staticClass: "button is-primary",
-                attrs: {
-                  href: "https://admin-one-laravel.justboil.me/",
-                  target: "_blank"
-                }
-              },
-              [
-                _c("b-icon", {
-                  attrs: { icon: "credit-card", "custom-size": "default" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Premium Demo")])
-              ],
-              1
-            )
-          ])
-        ])
-      ])
+      _c("div", { staticClass: "level-right" })
     ])
   ])
 }
@@ -68229,7 +68063,7 @@ var render = function() {
       _c("title-bar", { attrs: { "title-stack": _vm.titleStack } }),
       _vm._v(" "),
       _c("hero-bar", { attrs: { "has-right-visible": false } }, [
-        _vm._v("\n    Dashboard\n  ")
+        _vm._v("\n    Sales Reporting\n  ")
       ]),
       _vm._v(" "),
       _c(
@@ -68277,40 +68111,8 @@ var render = function() {
           _c(
             "card-component",
             {
-              attrs: {
-                title: "Performance",
-                icon: "finance",
-                "header-icon": "reload"
-              },
-              on: { "header-icon-click": _vm.fillChartData }
-            },
-            [
-              _vm.defaultChart.chartData
-                ? _c(
-                    "div",
-                    { staticClass: "chart-area" },
-                    [
-                      _c("line-chart", {
-                        ref: "bigChart",
-                        staticStyle: { height: "100%" },
-                        attrs: {
-                          "chart-id": "big-line-chart",
-                          "chart-data": _vm.defaultChart.chartData,
-                          "extra-options": _vm.defaultChart.extraOptions
-                        }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "card-component",
-            {
               staticClass: "has-table has-mobile-sort-spaced",
-              attrs: { title: "Clients" }
+              attrs: { title: "Sales By Staff" }
             },
             [_c("clients-table-sample", { attrs: { "data-url": "/clients" } })],
             1
