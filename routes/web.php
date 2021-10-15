@@ -33,13 +33,15 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 // ADD MIDDLEWARE
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/sale', [\App\Http\Controllers\SaleController::class, 'index'])->name('sale');
+
 
 /*
  * Clients management
  * */
 Route::prefix('/sales')->group(
     function () {
-        Route::get('/', [\App\Http\Controllers\ClientsController::class, 'index']);
+        Route::get('/', [\App\Http\Controllers\SaleController::class, 'index']);
         // Route::get('/{client}', [\App\Http\Controllers\ClientsController::class, 'show']);
         // Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
         // Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);
