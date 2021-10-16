@@ -36,41 +36,35 @@ class SaleService
         ->groupBy('staffid')
         ->get();
 
-
         $salesByLastMonth = Sale::select('staffid', \DB::raw('SUM(quantity) AS quantity_by_last_month'))
         ->whereYear('sales_date', Carbon::now()->format('Y'))
         ->whereMonth('sales_date', Carbon::now()->subMonth()->month)
         ->groupBy('staffid')
         ->get();
 
-
-
         $todayEncode = json_encode($salesByToday);
         $yesterdayEncode = json_encode($salesByYesterday);
         $twoDaysEncode = json_encode($salesByTwoDays);
         $lastMonthEncode = json_encode($salesByLastMonth);
         $monthEncode = json_encode($salesByMonth);
-        $result = array();
-        if ($todayEncode > 0) {
 
-            
+        $default = array('quantity_today' => 0, 'quantity_yesterday' => 0, 'quantity_two_days' => 0, 'quantity_by_month' => 0, 'quantity_by_last_month' => 0); 
+        $staff = Member::select('id as staffid', 'membername')
+        ->orderBy('id')
+        ->get()
+        ->toArray();
 
+        foreach ($staff as $key => $value) {
+            $staff[$key]=$value + $default;
         }
+        $staffEncode = json_encode($staff);
 
-
-        $staff = Member::select('id', 'membername')
-        ->get();
-
-
-        dd(json_decode($staffEncode));
-
-        $mergedArray = array_merge(json_decode($todayEncode), json_decode($yesterdayEncode), json_decode($twoDaysEncode), json_decode($lastMonthEncode), json_decode($monthEncode));
+        $result = array();
+        $mergedArray = array_merge(json_decode($staffEncode),json_decode($todayEncode), json_decode($yesterdayEncode), json_decode($twoDaysEncode), json_decode($lastMonthEncode), json_decode($monthEncode));
 
         foreach ($mergedArray as $arr) {
             if (!isset($result[$arr->staffid])) {
                 $result[$arr->staffid] = $arr;
-                dd($arr);
-
             } else {
                 foreach ($arr as $key => $value) {
                     $result[$arr->staffid]->$key = $value;
