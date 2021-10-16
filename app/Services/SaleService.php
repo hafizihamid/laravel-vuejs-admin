@@ -11,98 +11,72 @@ class SaleService
 
     public function salesByStaff()
     {
+        $today = date("Y-m-d");
+        $yesterday = date('Y-m-d', strtotime("-1 days"));
 
-$today = Carbon::now()->format('Y-m-d');
-
-    // $data= Sale::select('staffid', \DB::raw('SUM(quantity) AS total_quantity'))
-    //         ->get()
-    //         ->groupBy(function($val) {
-    //         return Carbon::parse($val->sales_date)->format('m');
-    //  });
-
-    //  print($data);
-
-
-// $visitorTraffic = Sale::select('staffid', 'quantity')->
-// where('sales_date', '=', '2015-07-31')
-
-//                             ->get(array(
-//                                 \DB::raw('Date(sales_date) as date'),
-//                                 \DB::raw('SUM(quantity) AS total_quantity')
-//                             ));
-
-
-
-//                             print($visitorTraffic);
-
-
-
-
-
-        $today = '2015-08-14';
-        // $yesterday = '2015-08-03';
-
-
-
-        $salesByToday = Sale::select('staffid', \DB::raw('SUM(quantity) AS total_quantity_today'))
+        $salesByToday = Sale::select('staffid', \DB::raw('SUM(quantity) AS quantity_today'))
         ->where('sales_date', $today)
         ->groupBy('staffid')
-        ->get()
-        ->toArray();
+        ->get();
 
-        // $salesByYesterday = Sale::select('staffid', \DB::raw('SUM(quantity) AS total_quantity'))
-        // ->whereDate('sales_date', $yesterday)
-        // ->groupBy('staffid')
-        // ->get()
-        // ->toArray();
+        $salesByYesterday = Sale::select('staffid', \DB::raw('SUM(quantity) AS quantity_yesterday'))
+        ->whereDate('sales_date', $yesterday)
+        ->groupBy('staffid')
+        ->get();
 
-        // dd($salesByYesterday);
+        $salesByTwoDays = Sale::select('staffid', \DB::raw('SUM(quantity) AS quantity_two_days'))
+        ->whereDate('sales_date', '>', $yesterday)
+        ->whereDate('sales_date', '<', $today)
+        ->groupBy('staffid')
+        ->get();
 
-
-
-
-
-        dd($salesByToday);
-
-
-
-        // $data = json_decode($sales, TRUE);
+        $salesByMonth = Sale::select('staffid', \DB::raw('SUM(quantity) AS quantity_by_month'))
+        ->whereYear('sales_date', Carbon::now()->format('Y'))
+        ->whereMonth('sales_date', Carbon::now()->format('m'))
+        ->groupBy('staffid')
+        ->get();
 
 
-        // dd($data);
-
-        // $member = Member::select('id', 'membername')
-        // ->get()
-        // ->toArray();
-
-        // foreach ($member as $value) {
-        //     $t = $value;
-        // }
-
-        // foreach ($sales as $value) {
-        //     if($value['staffid']== $t['id']) {
-        //        dd($t['membername']);
-        //     };
-        //     // dd($value['staffid']);
-        //     // foreach ($value as $key) {
-        //     //     dd($key);
-        //     // }
-        // }
+        $salesByLastMonth = Sale::select('staffid', \DB::raw('SUM(quantity) AS quantity_by_last_month'))
+        ->whereYear('sales_date', Carbon::now()->format('Y'))
+        ->whereMonth('sales_date', Carbon::now()->subMonth()->month)
+        ->groupBy('staffid')
+        ->get();
 
 
 
-        // $test = array_intersect($sales, $member);
+        $todayEncode = json_encode($salesByToday);
+        $yesterdayEncode = json_encode($salesByYesterday);
+        $twoDaysEncode = json_encode($salesByTwoDays);
+        $lastMonthEncode = json_encode($salesByLastMonth);
+        $monthEncode = json_encode($salesByMonth);
+        $result = array();
+        if ($todayEncode > 0) {
 
-        // dd($test);
+            
+
+        }
 
 
+        $staff = Member::select('id', 'membername')
+        ->get();
 
 
-        // return response()->json(
-        //     [$sales,$member]
-        // );
-        // return $data1 = Sale::get()->groupBy('staffid');
+        dd(json_decode($staffEncode));
+
+        $mergedArray = array_merge(json_decode($todayEncode), json_decode($yesterdayEncode), json_decode($twoDaysEncode), json_decode($lastMonthEncode), json_decode($monthEncode));
+
+        foreach ($mergedArray as $arr) {
+            if (!isset($result[$arr->staffid])) {
+                $result[$arr->staffid] = $arr;
+                dd($arr);
+
+            } else {
+                foreach ($arr as $key => $value) {
+                    $result[$arr->staffid]->$key = $value;
+                }
+            }
+        }
+        return $result;
     }
 }
-
-// \DB::raw('sum(actualhours) as sumhours')

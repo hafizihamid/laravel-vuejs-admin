@@ -24,8 +24,8 @@ class SaleController extends Controller
     public function index()
     {
         $data = $this->saleService->salesByStaff();
-        
-        print($data);
+
+        dd($data);
     }
 
     /**
