@@ -48,7 +48,7 @@ class SaleService
         $lastMonthEncode = json_encode($salesByLastMonth);
         $monthEncode = json_encode($salesByMonth);
 
-        $default = array('quantity_today' => 0, 'quantity_yesterday' => 0, 'quantity_two_days' => 0, 'quantity_by_month' => 0, 'quantity_by_last_month' => 0); 
+        $default = array('quantity_today' => '0', 'quantity_yesterday' => '0', 'quantity_two_days' => '0', 'quantity_by_month' => '0', 'quantity_by_last_month' => '0'); 
         $staff = Member::select('id as staffid', 'membername')
         ->orderBy('id')
         ->get()
@@ -71,6 +71,7 @@ class SaleService
                 }
             }
         }
+
         return $result;
     }
 }

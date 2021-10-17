@@ -23,9 +23,18 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $data = $this->saleService->salesByStaff();
+         $data = $this->saleService->salesByStaff();
 
-        dd($data);
+         $reCreateArray = array_values($data);
+
+
+        return response()->json(
+            [
+            'data' => $reCreateArray
+            ]
+        );
+
+
     }
 
     /**
