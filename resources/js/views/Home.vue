@@ -53,6 +53,7 @@
         title="Sales By Staff"
         class="has-table has-mobile-sort-spaced"
       >
+        <clients-table-sample data-url="/sales" />
         <clients-table-sample data-url="/clients" />
       </card-component>
     </section>
