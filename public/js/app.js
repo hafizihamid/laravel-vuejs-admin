@@ -2594,9 +2594,80 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'ClientsTableSample',
+  name: "ClientsTableSample",
   components: {
     ModalBox: _components_ModalBox__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -2654,7 +2725,7 @@ __webpack_require__.r(__webpack_exports__);
 
           _this.$buefy.toast.open({
             message: "Error: ".concat(e.message),
-            type: 'is-danger',
+            type: "is-danger",
             queue: false
           });
         });
@@ -2678,7 +2749,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         _this2.$buefy.toast.open({
           message: "Error: ".concat(err.message),
-          type: 'is-danger',
+          type: "is-danger",
           queue: false
         });
       });
@@ -3361,6 +3432,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_Charts_LineChart__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/Charts/LineChart */ "./resources/js/components/Charts/LineChart.js");
 /* harmony import */ var _components_ClientsTableSample__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/ClientsTableSample */ "./resources/js/components/ClientsTableSample.vue");
+//
 //
 //
 //
@@ -67349,18 +67421,13 @@ var render = function() {
         },
         [
           _c("b-table-column", {
-            attrs: { "cell-class": "has-no-head-mobile is-image-cell" },
+            attrs: { label: "Name", field: "membername", sortable: "" },
             scopedSlots: _vm._u([
               {
                 key: "default",
                 fn: function(props) {
                   return [
-                    _c("div", { staticClass: "image" }, [
-                      _c("img", {
-                        staticClass: "is-rounded",
-                        attrs: { src: props.row.avatar }
-                      })
-                    ])
+                    _vm._v("\n      " + _vm._s(props.row.membername) + "\n    ")
                   ]
                 }
               }
@@ -67368,13 +67435,15 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("b-table-column", {
-            attrs: { label: "Name", field: "name", sortable: "" },
+            attrs: { label: "Today", field: "quantity_today", sortable: "" },
             scopedSlots: _vm._u([
               {
                 key: "default",
                 fn: function(props) {
                   return [
-                    _vm._v("\n      " + _vm._s(props.row.name) + "\n    ")
+                    _vm._v(
+                      "\n      " + _vm._s(props.row.quantity_today) + "\n    "
+                    )
                   ]
                 }
               }
@@ -67382,27 +67451,17 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("b-table-column", {
-            attrs: { label: "Company", field: "company", sortable: "" },
+            attrs: { label: "Yesterday", field: "yesterday", sortable: "" },
             scopedSlots: _vm._u([
               {
                 key: "default",
                 fn: function(props) {
                   return [
-                    _vm._v("\n      " + _vm._s(props.row.company) + "\n    ")
-                  ]
-                }
-              }
-            ])
-          }),
-          _vm._v(" "),
-          _c("b-table-column", {
-            attrs: { label: "City", field: "city", sortable: "" },
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function(props) {
-                  return [
-                    _vm._v("\n      " + _vm._s(props.row.city) + "\n    ")
+                    _vm._v(
+                      "\n      " +
+                        _vm._s(props.row.quantity_yesterday) +
+                        "\n    "
+                    )
                   ]
                 }
               }
@@ -67411,9 +67470,8 @@ var render = function() {
           _vm._v(" "),
           _c("b-table-column", {
             attrs: {
-              "cell-class": "is-progress-col",
-              label: "Progress",
-              field: "progress",
+              label: "Two Days",
+              field: "quantity_two_days",
               sortable: ""
             },
             scopedSlots: _vm._u([
@@ -67421,14 +67479,10 @@ var render = function() {
                 key: "default",
                 fn: function(props) {
                   return [
-                    _c(
-                      "progress",
-                      {
-                        staticClass: "progress is-small is-primary",
-                        attrs: { max: "100" },
-                        domProps: { value: props.row.progress }
-                      },
-                      [_vm._v(_vm._s(props.row.progress))]
+                    _vm._v(
+                      "\n      " +
+                        _vm._s(props.row.quantity_two_days) +
+                        "\n    "
                     )
                   ]
                 }
@@ -67437,19 +67491,16 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("b-table-column", {
-            attrs: { label: "Created" },
+            attrs: { label: "Month", field: "quantity_by_month", sortable: "" },
             scopedSlots: _vm._u([
               {
                 key: "default",
                 fn: function(props) {
                   return [
-                    _c(
-                      "small",
-                      {
-                        staticClass: "has-text-grey is-abbr-like",
-                        attrs: { title: props.row.created }
-                      },
-                      [_vm._v(_vm._s(props.row.created))]
+                    _vm._v(
+                      "\n      " +
+                        _vm._s(props.row.quantity_by_month) +
+                        "\n    "
                     )
                   ]
                 }
@@ -67458,56 +67509,20 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("b-table-column", {
-            attrs: { "custom-key": "actions", "cell-class": "is-actions-cell" },
+            attrs: {
+              label: "Last Month",
+              field: "quantity_by_last_month",
+              sortable: ""
+            },
             scopedSlots: _vm._u([
               {
                 key: "default",
                 fn: function(props) {
                   return [
-                    _c(
-                      "div",
-                      { staticClass: "buttons is-right" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "button is-small is-primary",
-                            attrs: {
-                              to: {
-                                name: "clients.edit",
-                                params: { id: props.row.id }
-                              }
-                            }
-                          },
-                          [
-                            _c("b-icon", {
-                              attrs: { icon: "account-edit", size: "is-small" }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-small is-danger",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.trashModal(props.row)
-                              }
-                            }
-                          },
-                          [
-                            _c("b-icon", {
-                              attrs: { icon: "trash-can", size: "is-small" }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
+                    _vm._v(
+                      "\n      " +
+                        _vm._s(props.row.quantity_by_last_month) +
+                        "\n    "
                     )
                   ]
                 }
@@ -68114,7 +68129,11 @@ var render = function() {
               staticClass: "has-table has-mobile-sort-spaced",
               attrs: { title: "Sales By Staff" }
             },
-            [_c("clients-table-sample", { attrs: { "data-url": "/clients" } })],
+            [
+              _c("clients-table-sample", { attrs: { "data-url": "/sales" } }),
+              _vm._v(" "),
+              _c("clients-table-sample", { attrs: { "data-url": "/clients" } })
+            ],
             1
           )
         ],
