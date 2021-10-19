@@ -17,7 +17,7 @@
       default-sort="name"
       :data="clients"
     >
-      <b-table-column
+      <!-- <b-table-column
         cell-class="has-no-head-mobile is-image-cell"
         v-slot="props"
       >
@@ -26,7 +26,7 @@
         </div>
       </b-table-column>
       <b-table-column label="Name" field="name" sortable v-slot="props">
-        {{ props.row.name }}
+        {{ props.row.membername }}
       </b-table-column>
       <b-table-column label="Company" field="company" sortable v-slot="props">
         {{ props.row.company }}
@@ -73,6 +73,50 @@
             <b-icon icon="trash-can" size="is-small" />
           </button>
         </div>
+      </b-table-column> -->
+
+      <b-table-column label="Name" field="membername" sortable v-slot="props">
+        {{ props.row.membername }}
+      </b-table-column>
+      <b-table-column
+        label="Today"
+        field="quantity_today"
+        sortable
+        v-slot="props"
+      >
+        {{ props.row.quantity_today }}
+      </b-table-column>
+      <b-table-column
+        label="Yesterday"
+        field="yesterday"
+        sortable
+        v-slot="props"
+      >
+        {{ props.row.quantity_yesterday }}
+      </b-table-column>
+      <b-table-column
+        label="Two Days"
+        field="quantity_two_days"
+        sortable
+        v-slot="props"
+      >
+        {{ props.row.quantity_two_days }}
+      </b-table-column>
+      <b-table-column
+        label="Month"
+        field="quantity_by_month"
+        sortable
+        v-slot="props"
+      >
+        {{ props.row.quantity_by_month }}
+      </b-table-column>
+      <b-table-column
+        label="Last Month"
+        field="quantity_by_last_month"
+        sortable
+        v-slot="props"
+      >
+        {{ props.row.quantity_by_last_month }}
       </b-table-column>
 
       <section slot="empty" class="section">
@@ -99,7 +143,7 @@
 import ModalBox from "@/components/ModalBox";
 
 export default {
-  name: "ClientsTableSample",
+  name: "SalesByStaffTable",
   components: { ModalBox },
   props: {
     dataUrl: {

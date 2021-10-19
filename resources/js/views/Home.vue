@@ -5,7 +5,7 @@
       Sales Reporting
     </hero-bar>
     <section class="section is-main-section">
-      <tiles>
+      <!-- <tiles>
         <card-widget
           class="tile is-child"
           type="is-primary"
@@ -29,7 +29,7 @@
           suffix="%"
           label="Performance"
         />
-      </tiles>
+      </tiles> -->
 
       <!-- <card-component
         title="Performance"
@@ -53,8 +53,8 @@
         title="Sales By Staff"
         class="has-table has-mobile-sort-spaced"
       >
-        <clients-table-sample data-url="/sales" />
-        <clients-table-sample data-url="/clients" />
+        <!-- <clients-table-sample data-url="/sales" /> -->
+        <sales-by-staff-table data-url="/sales" />
       </card-component>
     </section>
   </div>
@@ -70,16 +70,19 @@ import CardWidget from "@/components/CardWidget";
 import CardComponent from "@/components/CardComponent";
 import LineChart from "@/components/Charts/LineChart";
 import ClientsTableSample from "@/components/ClientsTableSample";
+import SalesByStaffTable from "@/components/SalesByStaffTable";
 export default {
   name: "home",
   components: {
     ClientsTableSample,
+    SalesByStaffTable,
     LineChart,
     CardComponent,
     CardWidget,
     Tiles,
     HeroBar,
-    TitleBar
+    TitleBar,
+    SalesByStaffTable
   },
   data() {
     return {
