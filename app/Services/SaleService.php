@@ -74,4 +74,16 @@ class SaleService
 
         return $result;
     }
+
+    public function pendingPrint()
+    {
+        $pendingForPrint = Sale::select('staffid', \DB::raw('COUNT(salesid) AS counted'))
+        ->whereNull('tracking_no')
+        ->where('sales_mode', '!=', 'cod')
+        ->groupBy('staffid')
+        ->get()
+        ->toArray();
+
+        dd($pendingForPrint);
+    }
 }
