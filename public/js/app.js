@@ -2762,6 +2762,167 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DirectPurchaseTable.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DirectPurchaseTable.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_ModalBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/ModalBox */ "./resources/js/components/ModalBox.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "DirectPurchaseTable",
+  components: {
+    ModalBox: _components_ModalBox__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    dataUrl: {
+      type: String,
+      "default": null
+    },
+    checkable: {
+      type: Boolean,
+      "default": false
+    }
+  },
+  data: function data() {
+    return {
+      isModalActive: false,
+      trashObject: null,
+      clients: [],
+      isLoading: false,
+      paginated: false,
+      perPage: 10,
+      checkedRows: []
+    };
+  },
+  computed: {
+    trashObjectName: function trashObjectName() {
+      if (this.trashObject) {
+        return this.trashObject.name;
+      }
+
+      return null;
+    }
+  },
+  created: function created() {
+    this.getData();
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      if (this.dataUrl) {
+        this.isLoading = true;
+        axios.get(this.dataUrl).then(function (r) {
+          _this.isLoading = false;
+
+          if (r.data && r.data.data) {
+            if (r.data.data.length > _this.perPage) {
+              _this.paginated = true;
+            }
+
+            _this.clients = r.data.data;
+          }
+        })["catch"](function (err) {
+          _this.isLoading = false;
+
+          _this.$buefy.toast.open({
+            message: "Error: ".concat(e.message),
+            type: "is-danger",
+            queue: false
+          });
+        });
+      }
+    },
+    trashModal: function trashModal(trashObject) {
+      this.trashObject = trashObject;
+      this.isModalActive = true;
+    },
+    trashConfirm: function trashConfirm() {
+      var _this2 = this;
+
+      this.isModalActive = false;
+      axios["delete"]("/clients/".concat(this.trashObject.id, "/destroy")).then(function (r) {
+        _this2.getData();
+
+        _this2.$buefy.snackbar.open({
+          message: "Deleted ".concat(_this2.trashObject.name),
+          queue: false
+        });
+      })["catch"](function (err) {
+        _this2.$buefy.toast.open({
+          message: "Error: ".concat(err.message),
+          type: "is-danger",
+          queue: false
+        });
+      });
+    },
+    trashCancel: function trashCancel() {
+      this.isModalActive = false;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FooterBar.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FooterBar.vue?vue&type=script&lang=js& ***!
@@ -3845,6 +4006,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ClientsTableSample__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/ClientsTableSample */ "./resources/js/components/ClientsTableSample.vue");
 /* harmony import */ var _components_SalesByStaffTable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/SalesByStaffTable */ "./resources/js/components/SalesByStaffTable.vue");
 /* harmony import */ var _components_PendingForPrintTable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/components/PendingForPrintTable */ "./resources/js/components/PendingForPrintTable.vue");
+/* harmony import */ var _components_DirectPurchaseTable__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/components/DirectPurchaseTable */ "./resources/js/components/DirectPurchaseTable.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3925,6 +4095,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "home",
   components: {
@@ -3936,7 +4107,8 @@ __webpack_require__.r(__webpack_exports__);
     Tiles: _components_Tiles__WEBPACK_IMPORTED_MODULE_3__["default"],
     HeroBar: _components_HeroBar__WEBPACK_IMPORTED_MODULE_2__["default"],
     TitleBar: _components_TitleBar__WEBPACK_IMPORTED_MODULE_1__["default"],
-    PendingForPrintTable: _components_PendingForPrintTable__WEBPACK_IMPORTED_MODULE_9__["default"]
+    PendingForPrintTable: _components_PendingForPrintTable__WEBPACK_IMPORTED_MODULE_9__["default"],
+    DirectPurchaseTable: _components_DirectPurchaseTable__WEBPACK_IMPORTED_MODULE_10__["default"]
   },
   data: function data() {
     return {
@@ -66433,6 +66605,45 @@ component.options.__file = "resources/js/components/ClientsTableSample.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/DirectPurchaseTable.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/DirectPurchaseTable.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DirectPurchaseTable_vue_vue_type_template_id_5405fc6e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DirectPurchaseTable.vue?vue&type=template&id=5405fc6e& */ "./resources/js/components/DirectPurchaseTable.vue?vue&type=template&id=5405fc6e&");
+/* harmony import */ var _DirectPurchaseTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DirectPurchaseTable.vue?vue&type=script&lang=js& */ "./resources/js/components/DirectPurchaseTable.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DirectPurchaseTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DirectPurchaseTable_vue_vue_type_template_id_5405fc6e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DirectPurchaseTable_vue_vue_type_template_id_5405fc6e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DirectPurchaseTable.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/FooterBar.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/FooterBar.vue ***!
@@ -67028,6 +67239,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/DirectPurchaseTable.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/DirectPurchaseTable.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DirectPurchaseTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DirectPurchaseTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DirectPurchaseTable.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DirectPurchaseTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/FooterBar.vue?vue&type=script&lang=js&":
 /*!************************************************************************!*\
   !*** ./resources/js/components/FooterBar.vue?vue&type=script&lang=js& ***!
@@ -67352,6 +67579,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientsTableSample_vue_vue_type_template_id_3eda099b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientsTableSample_vue_vue_type_template_id_3eda099b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ClientsTableSample.vue?vue&type=template&id=3eda099b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ClientsTableSample.vue?vue&type=template&id=3eda099b&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DirectPurchaseTable.vue?vue&type=template&id=5405fc6e&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/DirectPurchaseTable.vue?vue&type=template&id=5405fc6e& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DirectPurchaseTable_vue_vue_type_template_id_5405fc6e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DirectPurchaseTable_vue_vue_type_template_id_5405fc6e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DirectPurchaseTable_vue_vue_type_template_id_5405fc6e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DirectPurchaseTable.vue?vue&type=template&id=5405fc6e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DirectPurchaseTable.vue?vue&type=template&id=5405fc6e&");
 
 
 /***/ }),
@@ -68092,6 +68336,142 @@ var render = function() {
                         _vm._s(props.row.quantity_by_last_month) +
                         "\n    "
                     )
+                  ]
+                }
+              }
+            ])
+          }),
+          _vm._v(" "),
+          _c(
+            "section",
+            { staticClass: "section", attrs: { slot: "empty" }, slot: "empty" },
+            [
+              _c(
+                "div",
+                { staticClass: "content has-text-grey has-text-centered" },
+                [
+                  _vm.isLoading
+                    ? [
+                        _c(
+                          "p",
+                          [
+                            _c("b-icon", {
+                              attrs: {
+                                icon: "dots-horizontal",
+                                size: "is-large"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Fetching data...")])
+                      ]
+                    : [
+                        _c(
+                          "p",
+                          [
+                            _c("b-icon", {
+                              attrs: { icon: "emoticon-sad", size: "is-large" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Nothing's here…")])
+                      ]
+                ],
+                2
+              )
+            ]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DirectPurchaseTable.vue?vue&type=template&id=5405fc6e&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DirectPurchaseTable.vue?vue&type=template&id=5405fc6e& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("modal-box", {
+        attrs: {
+          "is-active": _vm.isModalActive,
+          "trash-object-name": _vm.trashObjectName
+        },
+        on: { confirm: _vm.trashConfirm, cancel: _vm.trashCancel }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-table",
+        {
+          attrs: {
+            "checked-rows": _vm.checkedRows,
+            checkable: _vm.checkable,
+            loading: _vm.isLoading,
+            paginated: _vm.paginated,
+            "per-page": _vm.perPage,
+            striped: true,
+            hoverable: true,
+            "default-sort": "name",
+            data: _vm.clients
+          },
+          on: {
+            "update:checkedRows": function($event) {
+              _vm.checkedRows = $event
+            },
+            "update:checked-rows": function($event) {
+              _vm.checkedRows = $event
+            }
+          }
+        },
+        [
+          _c("b-table-column", {
+            attrs: { label: "Staff Name", field: "membername", sortable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(props) {
+                  return [
+                    _vm._v("\n      " + _vm._s(props.row.membername) + "\n    ")
+                  ]
+                }
+              }
+            ])
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { label: "Total", field: "counted", sortable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(props) {
+                  return [
+                    _vm._v("\n      " + _vm._s(props.row.counted) + "\n    ")
                   ]
                 }
               }
@@ -69026,6 +69406,20 @@ var render = function() {
             {
               staticClass: "has-table has-mobile-sort-spaced",
               attrs: { title: "Pending for Print" }
+            },
+            [
+              _c("pending-for-print-table", {
+                attrs: { "data-url": "/sales/print" }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "card-component",
+            {
+              staticClass: "has-table has-mobile-sort-spaced",
+              attrs: { title: "Direct Purchase" }
             },
             [
               _c("pending-for-print-table", {
