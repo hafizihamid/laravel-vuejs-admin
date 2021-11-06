@@ -3253,6 +3253,167 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PendingForPrintTable.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PendingForPrintTable.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_ModalBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/ModalBox */ "./resources/js/components/ModalBox.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "PendingForPrintTable",
+  components: {
+    ModalBox: _components_ModalBox__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    dataUrl: {
+      type: String,
+      "default": null
+    },
+    checkable: {
+      type: Boolean,
+      "default": false
+    }
+  },
+  data: function data() {
+    return {
+      isModalActive: false,
+      trashObject: null,
+      clients: [],
+      isLoading: false,
+      paginated: false,
+      perPage: 10,
+      checkedRows: []
+    };
+  },
+  computed: {
+    trashObjectName: function trashObjectName() {
+      if (this.trashObject) {
+        return this.trashObject.name;
+      }
+
+      return null;
+    }
+  },
+  created: function created() {
+    this.getData();
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      if (this.dataUrl) {
+        this.isLoading = true;
+        axios.get(this.dataUrl).then(function (r) {
+          _this.isLoading = false;
+
+          if (r.data && r.data.data) {
+            if (r.data.data.length > _this.perPage) {
+              _this.paginated = true;
+            }
+
+            _this.clients = r.data.data;
+          }
+        })["catch"](function (err) {
+          _this.isLoading = false;
+
+          _this.$buefy.toast.open({
+            message: "Error: ".concat(e.message),
+            type: "is-danger",
+            queue: false
+          });
+        });
+      }
+    },
+    trashModal: function trashModal(trashObject) {
+      this.trashObject = trashObject;
+      this.isModalActive = true;
+    },
+    trashConfirm: function trashConfirm() {
+      var _this2 = this;
+
+      this.isModalActive = false;
+      axios["delete"]("/clients/".concat(this.trashObject.id, "/destroy")).then(function (r) {
+        _this2.getData();
+
+        _this2.$buefy.snackbar.open({
+          message: "Deleted ".concat(_this2.trashObject.name),
+          queue: false
+        });
+      })["catch"](function (err) {
+        _this2.$buefy.toast.open({
+          message: "Error: ".concat(err.message),
+          type: "is-danger",
+          queue: false
+        });
+      });
+    },
+    trashCancel: function trashCancel() {
+      this.isModalActive = false;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SalesByStaffTable.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SalesByStaffTable.vue?vue&type=script&lang=js& ***!
@@ -3683,8 +3844,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Charts_LineChart__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/Charts/LineChart */ "./resources/js/components/Charts/LineChart.js");
 /* harmony import */ var _components_ClientsTableSample__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/ClientsTableSample */ "./resources/js/components/ClientsTableSample.vue");
 /* harmony import */ var _components_SalesByStaffTable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/SalesByStaffTable */ "./resources/js/components/SalesByStaffTable.vue");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var _components_PendingForPrintTable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/components/PendingForPrintTable */ "./resources/js/components/PendingForPrintTable.vue");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3757,9 +3924,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "home",
-  components: _defineProperty({
+  components: {
     ClientsTableSample: _components_ClientsTableSample__WEBPACK_IMPORTED_MODULE_7__["default"],
     SalesByStaffTable: _components_SalesByStaffTable__WEBPACK_IMPORTED_MODULE_8__["default"],
     LineChart: _components_Charts_LineChart__WEBPACK_IMPORTED_MODULE_6__["default"],
@@ -3767,8 +3935,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     CardWidget: _components_CardWidget__WEBPACK_IMPORTED_MODULE_4__["default"],
     Tiles: _components_Tiles__WEBPACK_IMPORTED_MODULE_3__["default"],
     HeroBar: _components_HeroBar__WEBPACK_IMPORTED_MODULE_2__["default"],
-    TitleBar: _components_TitleBar__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }, "SalesByStaffTable", _components_SalesByStaffTable__WEBPACK_IMPORTED_MODULE_8__["default"]),
+    TitleBar: _components_TitleBar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    PendingForPrintTable: _components_PendingForPrintTable__WEBPACK_IMPORTED_MODULE_9__["default"]
+  },
   data: function data() {
     return {
       defaultChart: {
@@ -66498,6 +66667,45 @@ component.options.__file = "resources/js/components/NavBarMenu.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/PendingForPrintTable.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/PendingForPrintTable.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _PendingForPrintTable_vue_vue_type_template_id_a0659c44___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PendingForPrintTable.vue?vue&type=template&id=a0659c44& */ "./resources/js/components/PendingForPrintTable.vue?vue&type=template&id=a0659c44&");
+/* harmony import */ var _PendingForPrintTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PendingForPrintTable.vue?vue&type=script&lang=js& */ "./resources/js/components/PendingForPrintTable.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PendingForPrintTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PendingForPrintTable_vue_vue_type_template_id_a0659c44___WEBPACK_IMPORTED_MODULE_0__.render,
+  _PendingForPrintTable_vue_vue_type_template_id_a0659c44___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PendingForPrintTable.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/SalesByStaffTable.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/components/SalesByStaffTable.vue ***!
@@ -66916,6 +67124,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/PendingForPrintTable.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/PendingForPrintTable.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PendingForPrintTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PendingForPrintTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PendingForPrintTable.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PendingForPrintTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/SalesByStaffTable.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
   !*** ./resources/js/components/SalesByStaffTable.vue?vue&type=script&lang=js& ***!
@@ -67230,6 +67454,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBarMenu_vue_vue_type_template_id_5d97129a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBarMenu_vue_vue_type_template_id_5d97129a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NavBarMenu.vue?vue&type=template&id=5d97129a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NavBarMenu.vue?vue&type=template&id=5d97129a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PendingForPrintTable.vue?vue&type=template&id=a0659c44&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/PendingForPrintTable.vue?vue&type=template&id=a0659c44& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PendingForPrintTable_vue_vue_type_template_id_a0659c44___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PendingForPrintTable_vue_vue_type_template_id_a0659c44___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PendingForPrintTable_vue_vue_type_template_id_a0659c44___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PendingForPrintTable.vue?vue&type=template&id=a0659c44& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PendingForPrintTable.vue?vue&type=template&id=a0659c44&");
 
 
 /***/ }),
@@ -68315,6 +68556,142 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PendingForPrintTable.vue?vue&type=template&id=a0659c44&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PendingForPrintTable.vue?vue&type=template&id=a0659c44& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("modal-box", {
+        attrs: {
+          "is-active": _vm.isModalActive,
+          "trash-object-name": _vm.trashObjectName
+        },
+        on: { confirm: _vm.trashConfirm, cancel: _vm.trashCancel }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-table",
+        {
+          attrs: {
+            "checked-rows": _vm.checkedRows,
+            checkable: _vm.checkable,
+            loading: _vm.isLoading,
+            paginated: _vm.paginated,
+            "per-page": _vm.perPage,
+            striped: true,
+            hoverable: true,
+            "default-sort": "name",
+            data: _vm.clients
+          },
+          on: {
+            "update:checkedRows": function($event) {
+              _vm.checkedRows = $event
+            },
+            "update:checked-rows": function($event) {
+              _vm.checkedRows = $event
+            }
+          }
+        },
+        [
+          _c("b-table-column", {
+            attrs: { label: "Staff Name\t", field: "membername", sortable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(props) {
+                  return [
+                    _vm._v("\n      " + _vm._s(props.row.membername) + "\n    ")
+                  ]
+                }
+              }
+            ])
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { label: "Total", field: "counted", sortable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(props) {
+                  return [
+                    _vm._v("\n      " + _vm._s(props.row.counted) + "\n    ")
+                  ]
+                }
+              }
+            ])
+          }),
+          _vm._v(" "),
+          _c(
+            "section",
+            { staticClass: "section", attrs: { slot: "empty" }, slot: "empty" },
+            [
+              _c(
+                "div",
+                { staticClass: "content has-text-grey has-text-centered" },
+                [
+                  _vm.isLoading
+                    ? [
+                        _c(
+                          "p",
+                          [
+                            _c("b-icon", {
+                              attrs: {
+                                icon: "dots-horizontal",
+                                size: "is-large"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Fetching data...")])
+                      ]
+                    : [
+                        _c(
+                          "p",
+                          [
+                            _c("b-icon", {
+                              attrs: { icon: "emoticon-sad", size: "is-large" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Nothing's here…")])
+                      ]
+                ],
+                2
+              )
+            ]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SalesByStaffTable.vue?vue&type=template&id=6080f456&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SalesByStaffTable.vue?vue&type=template&id=6080f456& ***!
@@ -68636,7 +69013,25 @@ var render = function() {
               staticClass: "has-table has-mobile-sort-spaced",
               attrs: { title: "Sales By Staff" }
             },
-            [_c("sales-by-staff-table", { attrs: { "data-url": "/sales" } })],
+            [
+              _c("sales-by-staff-table", {
+                attrs: { "data-url": "/sales/staff" }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "card-component",
+            {
+              staticClass: "has-table has-mobile-sort-spaced",
+              attrs: { title: "Pending for Print" }
+            },
+            [
+              _c("pending-for-print-table", {
+                attrs: { "data-url": "/sales/print" }
+              })
+            ],
             1
           )
         ],

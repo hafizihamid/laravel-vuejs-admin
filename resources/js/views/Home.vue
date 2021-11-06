@@ -54,7 +54,14 @@
         class="has-table has-mobile-sort-spaced"
       >
         <!-- <clients-table-sample data-url="/sales" /> -->
-        <sales-by-staff-table data-url="/sales" />
+        <sales-by-staff-table data-url="/sales/staff" />
+      </card-component>
+      <card-component
+        title="Pending for Print"
+        class="has-table has-mobile-sort-spaced"
+      >
+        <!-- <clients-table-sample data-url="/sales" /> -->
+        <pending-for-print-table data-url="/sales/print" />
       </card-component>
     </section>
   </div>
@@ -71,6 +78,7 @@ import CardComponent from "@/components/CardComponent";
 import LineChart from "@/components/Charts/LineChart";
 import ClientsTableSample from "@/components/ClientsTableSample";
 import SalesByStaffTable from "@/components/SalesByStaffTable";
+import PendingForPrintTable from "@/components/PendingForPrintTable";
 export default {
   name: "home",
   components: {
@@ -82,7 +90,7 @@ export default {
     Tiles,
     HeroBar,
     TitleBar,
-    SalesByStaffTable
+    PendingForPrintTable
   },
   data() {
     return {

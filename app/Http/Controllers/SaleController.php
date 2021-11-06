@@ -21,7 +21,7 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function staff()
     {
          $data = $this->saleService->salesByStaff();
 
@@ -33,8 +33,25 @@ class SaleController extends Controller
             'data' => $reCreateArray
             ]
         );
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function print()
+    {
+        $data = $this->saleService->pendingPrint();
+
+        $reCreateArray = array_values($data);
 
 
+        return response()->json(
+            [
+            'data' => $reCreateArray
+            ]
+        );
     }
 
     /**

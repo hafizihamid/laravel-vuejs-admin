@@ -41,7 +41,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  * */
 Route::prefix('/sales')->group(
     function () {
-        Route::get('/', [\App\Http\Controllers\SaleController::class, 'index']);
+        Route::get('/staff', [\App\Http\Controllers\SaleController::class, 'staff']);
+        Route::get('/print', [\App\Http\Controllers\SaleController::class, 'print']);
+
         // Route::get('/{client}', [\App\Http\Controllers\ClientsController::class, 'show']);
         // Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
         // Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);

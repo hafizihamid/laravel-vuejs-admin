@@ -48,7 +48,7 @@ class SaleService
         $lastMonthEncode = json_encode($salesByLastMonth);
         $monthEncode = json_encode($salesByMonth);
 
-        $default = array('quantity_today' => '0', 'quantity_yesterday' => '0', 'quantity_two_days' => '0', 'quantity_by_month' => '0', 'quantity_by_last_month' => '0'); 
+        $default = array('quantity_today' => '0', 'quantity_yesterday' => '0', 'quantity_two_days' => '0', 'quantity_by_month' => '0', 'quantity_by_last_month' => '0');
         $staff = Member::select('id as staffid', 'membername')
         ->orderBy('id')
         ->get()
@@ -60,7 +60,7 @@ class SaleService
         $staffEncode = json_encode($staff);
 
         $result = array();
-        $mergedArray = array_merge(json_decode($staffEncode),json_decode($todayEncode), json_decode($yesterdayEncode), json_decode($twoDaysEncode), json_decode($lastMonthEncode), json_decode($monthEncode));
+        $mergedArray = array_merge(json_decode($staffEncode), json_decode($todayEncode), json_decode($yesterdayEncode), json_decode($twoDaysEncode), json_decode($lastMonthEncode), json_decode($monthEncode));
 
         foreach ($mergedArray as $arr) {
             if (!isset($result[$arr->staffid])) {
@@ -81,9 +81,37 @@ class SaleService
         ->whereNull('tracking_no')
         ->where('sales_mode', '!=', 'cod')
         ->groupBy('staffid')
+        ->get();
+
+        $pendingEncode = json_encode($pendingForPrint);
+
+
+        $staff = Member::select('id as staffid', 'membername')
+        ->orderBy('id')
         ->get()
         ->toArray();
 
-        dd($pendingForPrint);
+        $default = array('counted' => '0');
+
+        foreach ($staff as $key => $value) {
+            $staff[$key]=$value + $default;
+        }
+        $staffEncode = json_encode($staff);
+
+        $mergedArray = array_merge(json_decode($staffEncode), json_decode($pendingEncode));
+
+        $result = array();
+
+        foreach ($mergedArray as $arr) {
+            if (!isset($result[$arr->staffid])) {
+                $result[$arr->staffid] = $arr;
+            } else {
+                foreach ($arr as $key => $value) {
+                    $result[$arr->staffid]->$key = $value;
+                }
+            }
+        }
+
+        return $result;
     }
 }

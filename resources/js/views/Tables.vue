@@ -56,6 +56,7 @@
 import Notification from "@/components/Notification";
 import ClientsTableSample from "@/components/ClientsTableSample";
 import SalesByStaffTable from "@/components/SalesByStaffTable";
+import PendingForPrintTable from "@/components/PendingForPrintTable";
 import CardComponent from "@/components/CardComponent";
 import TitleBar from "@/components/TitleBar";
 import HeroBar from "@/components/HeroBar";
@@ -67,6 +68,7 @@ export default {
     CardComponent,
     ClientsTableSample,
     SalesByStaffTable,
+    PendingForPrintTable,
     Notification
   },
   computed: {
