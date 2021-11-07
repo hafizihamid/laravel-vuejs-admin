@@ -59,6 +59,7 @@ import SalesByStaffTable from "@/components/SalesByStaffTable";
 import PendingForPrintTable from "@/components/PendingForPrintTable";
 import DirectPurchaseTable from "@/components/DirectPurchaseTable";
 import MonthlyDirectPurchaseTable from "@/components/MonthlyDirectPurchaseTable";
+import ProductInventoryTable from "@/components/ProductInventoryTable";
 import CardComponent from "@/components/CardComponent";
 import TitleBar from "@/components/TitleBar";
 import HeroBar from "@/components/HeroBar";
@@ -73,6 +74,7 @@ export default {
     PendingForPrintTable,
     DirectPurchaseTable,
     MonthlyDirectPurchaseTable,
+    ProductInventoryTable,
     Notification
   },
   computed: {

@@ -78,6 +78,13 @@
       >
         <monthly-direct-purchase-table data-url="/sales/print" />
       </card-component>
+
+      <card-component
+        title="Products Inventory"
+        class="has-table has-mobile-sort-spaced"
+      >
+        <product-inventory-table data-url="/sales/print" />
+      </card-component>
     </section>
   </div>
 </template>
@@ -96,6 +103,7 @@ import SalesByStaffTable from "@/components/SalesByStaffTable";
 import PendingForPrintTable from "@/components/PendingForPrintTable";
 import DirectPurchaseTable from "@/components/DirectPurchaseTable";
 import MonthlyDirectPurchaseTable from "@/components/MonthlyDirectPurchaseTable";
+import ProductInventoryTable from "@/components/ProductInventoryTable";
 export default {
   name: "home",
   components: {
@@ -109,7 +117,8 @@ export default {
     TitleBar,
     PendingForPrintTable,
     DirectPurchaseTable,
-    MonthlyDirectPurchaseTable
+    MonthlyDirectPurchaseTable,
+    ProductInventoryTable
   },
   data() {
     return {
