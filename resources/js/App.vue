@@ -35,9 +35,55 @@ export default {
         [
           {
             to: "/clients/index",
+            label: "SMS",
+            icon: "message"
+            // updateMark: true
+          },
+          {
+            label: "Submenus",
+            subLabel: "Submenus Example",
+            icon: "view-list",
+            menu: [
+              {
+                href: "#void",
+                label: "Sub-item One"
+              },
+              {
+                href: "#void",
+                label: "Sub-item Two"
+              }
+            ]
+          },
+
+          {
+            to: "/clients/index",
+            label: "Print",
+            icon: "printer"
+            // updateMark: true
+          },
+          {
+            to: "/clients/index",
             label: "Clients",
-            icon: "account-multiple",
-            updateMark: true
+            icon: "account-multiple"
+            // updateMark: true
+          },
+          {
+            to: "/clients/index",
+            label: "Clients",
+            icon: "account-multiple"
+            // updateMark: true
+          },
+          {
+            to: "/clients/index",
+            label: "Clients",
+            icon: "account-multiple"
+            // updateMark: true
+          },
+          {
+            to: "/clients/index",
+            label: "Clients",
+            icon: "account-multiple"
+            // updateMark: true
           }
         ],
         "Examples",

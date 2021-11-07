@@ -85,6 +85,13 @@
       >
         <product-inventory-table data-url="/sales/print" />
       </card-component>
+
+      <card-component
+        title="Bank Transactions"
+        class="has-table has-mobile-sort-spaced"
+      >
+        <bank-transaction-table data-url="/sales/print" />
+      </card-component>
     </section>
   </div>
 </template>
@@ -104,6 +111,7 @@ import PendingForPrintTable from "@/components/PendingForPrintTable";
 import DirectPurchaseTable from "@/components/DirectPurchaseTable";
 import MonthlyDirectPurchaseTable from "@/components/MonthlyDirectPurchaseTable";
 import ProductInventoryTable from "@/components/ProductInventoryTable";
+import BankTransactionTable from "@/components/BankTransactionTable";
 export default {
   name: "home",
   components: {
@@ -118,7 +126,8 @@ export default {
     PendingForPrintTable,
     DirectPurchaseTable,
     MonthlyDirectPurchaseTable,
-    ProductInventoryTable
+    ProductInventoryTable,
+    BankTransactionTable
   },
   data() {
     return {
