@@ -61,9 +61,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SalesByStaffTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/SalesByStaffTable */ "./resources/js/components/SalesByStaffTable.vue");
 /* harmony import */ var _components_PendingForPrintTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/PendingForPrintTable */ "./resources/js/components/PendingForPrintTable.vue");
 /* harmony import */ var _components_DirectPurchaseTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/DirectPurchaseTable */ "./resources/js/components/DirectPurchaseTable.vue");
-/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
-/* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/TitleBar */ "./resources/js/components/TitleBar.vue");
-/* harmony import */ var _components_HeroBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/HeroBar */ "./resources/js/components/HeroBar.vue");
+/* harmony import */ var _components_MonthlyDirectPurchaseTable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/MonthlyDirectPurchaseTable */ "./resources/js/components/MonthlyDirectPurchaseTable.vue");
+/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
+/* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/TitleBar */ "./resources/js/components/TitleBar.vue");
+/* harmony import */ var _components_HeroBar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/HeroBar */ "./resources/js/components/HeroBar.vue");
 //
 //
 //
@@ -118,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -129,13 +131,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Tables",
   components: {
-    HeroBar: _components_HeroBar__WEBPACK_IMPORTED_MODULE_7__["default"],
-    TitleBar: _components_TitleBar__WEBPACK_IMPORTED_MODULE_6__["default"],
-    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_5__["default"],
+    HeroBar: _components_HeroBar__WEBPACK_IMPORTED_MODULE_8__["default"],
+    TitleBar: _components_TitleBar__WEBPACK_IMPORTED_MODULE_7__["default"],
+    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_6__["default"],
     ClientsTableSample: _components_ClientsTableSample__WEBPACK_IMPORTED_MODULE_1__["default"],
     SalesByStaffTable: _components_SalesByStaffTable__WEBPACK_IMPORTED_MODULE_2__["default"],
     PendingForPrintTable: _components_PendingForPrintTable__WEBPACK_IMPORTED_MODULE_3__["default"],
     DirectPurchaseTable: _components_DirectPurchaseTable__WEBPACK_IMPORTED_MODULE_4__["default"],
+    MonthlyDirectPurchaseTable: _components_MonthlyDirectPurchaseTable__WEBPACK_IMPORTED_MODULE_5__["default"],
     Notification: _components_Notification__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {

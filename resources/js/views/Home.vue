@@ -56,6 +56,7 @@
         <!-- <clients-table-sample data-url="/sales" /> -->
         <sales-by-staff-table data-url="/sales/staff" />
       </card-component>
+
       <card-component
         title="Pending for Print"
         class="has-table has-mobile-sort-spaced"
@@ -68,8 +69,14 @@
         title="Direct Purchase"
         class="has-table has-mobile-sort-spaced"
       >
-        <!-- <clients-table-sample data-url="/sales" /> -->
-        <pending-for-print-table data-url="/sales/print" />
+        <direct-purchase-table data-url="/sales/print" />
+      </card-component>
+
+      <card-component
+        title="Monthly Direct Purchase"
+        class="has-table has-mobile-sort-spaced"
+      >
+        <monthly-direct-purchase-table data-url="/sales/print" />
       </card-component>
     </section>
   </div>
@@ -88,6 +95,7 @@ import ClientsTableSample from "@/components/ClientsTableSample";
 import SalesByStaffTable from "@/components/SalesByStaffTable";
 import PendingForPrintTable from "@/components/PendingForPrintTable";
 import DirectPurchaseTable from "@/components/DirectPurchaseTable";
+import MonthlyDirectPurchaseTable from "@/components/MonthlyDirectPurchaseTable";
 export default {
   name: "home",
   components: {
@@ -100,7 +108,8 @@ export default {
     HeroBar,
     TitleBar,
     PendingForPrintTable,
-    DirectPurchaseTable
+    DirectPurchaseTable,
+    MonthlyDirectPurchaseTable
   },
   data() {
     return {
