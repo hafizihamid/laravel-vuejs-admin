@@ -13,7 +13,7 @@ class SaleController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->saleService = new SaleService;
+        // $this->saleService = new SaleService;
     }
 
     /**
