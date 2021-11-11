@@ -71,7 +71,7 @@ export default {
             icon: "account",
             menu: [
               {
-                href: "#void",
+                href: "/admin",
                 label: "List of All Users"
               },
               {

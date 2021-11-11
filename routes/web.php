@@ -35,16 +35,22 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/sale', [\App\Http\Controllers\SaleController::class, 'index'])->name('sale');
 
-
-/*
- * Clients management
- * */
 Route::prefix('/sales')->group(
     function () {
         Route::get('/staff', [\App\Http\Controllers\SaleController::class, 'staff']);
         Route::get('/print', [\App\Http\Controllers\SaleController::class, 'print']);
 
         // Route::get('/{client}', [\App\Http\Controllers\ClientsController::class, 'show']);
+        // Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
+        // Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);
+        // Route::post('/destroy', [\App\Http\Controllers\ClientsController::class, 'destroyMass']);
+        // Route::delete('/{client}/destroy', [\App\Http\Controllers\ClientsController::class, 'destroy']);
+    }
+);
+
+Route::prefix('/admin')->group(
+    function () {
+        Route::get('/', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin');
         // Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
         // Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);
         // Route::post('/destroy', [\App\Http\Controllers\ClientsController::class, 'destroyMass']);
@@ -99,16 +105,16 @@ Route::prefix('/sales')->group(
 /*
  * Clients management
  * */
-// Route::prefix('/clients')->group(
-//     function () {
-//         Route::get('/', [\App\Http\Controllers\ClientsController::class, 'index']);
-//         Route::get('/{client}', [\App\Http\Controllers\ClientsController::class, 'show']);
-//         Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
-//         Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);
-//         Route::post('/destroy', [\App\Http\Controllers\ClientsController::class, 'destroyMass']);
-//         Route::delete('/{client}/destroy', [\App\Http\Controllers\ClientsController::class, 'destroy']);
-//     }
-// );
+Route::prefix('/clients')->group(
+    function () {
+        Route::get('/', [\App\Http\Controllers\ClientsController::class, 'index']);
+        Route::get('/{client}', [\App\Http\Controllers\ClientsController::class, 'show']);
+        Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
+        Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);
+        Route::post('/destroy', [\App\Http\Controllers\ClientsController::class, 'destroyMass']);
+        Route::delete('/{client}/destroy', [\App\Http\Controllers\ClientsController::class, 'destroy']);
+    }
+);
 
 /*
  * Current user

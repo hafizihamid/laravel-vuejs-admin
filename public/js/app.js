@@ -2123,7 +2123,7 @@ __webpack_require__.r(__webpack_exports__);
         subLabel: "Users",
         icon: "account",
         menu: [{
-          href: "#void",
+          href: "/admin",
           label: "List of All Users"
         }, {
           href: "#void",
@@ -5159,42 +5159,48 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   base: process.env.BASE_URL,
   routes: [{
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }, {
-    path: '/tables',
-    name: 'tables',
+    path: "/admin",
+    name: "admin",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Admin_AdminList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Admin/AdminList.vue */ "./resources/js/views/Admin/AdminList.vue"));
+    }
+  }, {
+    path: "/tables",
+    name: "tables",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Tables_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Tables.vue */ "./resources/js/views/Tables.vue"));
     }
   }, {
-    path: '/forms',
-    name: 'forms',
+    path: "/forms",
+    name: "forms",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Forms_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Forms.vue */ "./resources/js/views/Forms.vue"));
     }
   }, {
-    path: '/profile',
-    name: 'profile',
+    path: "/profile",
+    name: "profile",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Profile_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Profile.vue */ "./resources/js/views/Profile.vue"));
     }
   }, {
-    path: '/clients/index',
-    name: 'clients.index',
+    path: "/clients/index",
+    name: "clients.index",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Clients_ClientsIndex_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Clients/ClientsIndex.vue */ "./resources/js/views/Clients/ClientsIndex.vue"));
     }
   }, {
-    path: '/clients/new',
-    name: 'clients.new',
+    path: "/clients/new",
+    name: "clients.new",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Clients_ClientsForm_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Clients/ClientsForm.vue */ "./resources/js/views/Clients/ClientsForm.vue"));
     }
   }, {
-    path: '/clients/:id',
-    name: 'clients.edit',
+    path: "/clients/:id",
+    name: "clients.edit",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Clients_ClientsForm_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Clients/ClientsForm.vue */ "./resources/js/views/Clients/ClientsForm.vue"));
     },
@@ -87507,7 +87513,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_Tables_vue":1,"resources_js_views_Forms_vue":1,"resources_js_views_Profile_vue":1,"resources_js_views_Clients_ClientsIndex_vue":1,"resources_js_views_Clients_ClientsForm_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_Admin_AdminList_vue":1,"resources_js_views_Tables_vue":1,"resources_js_views_Forms_vue":1,"resources_js_views_Profile_vue":1,"resources_js_views_Clients_ClientsIndex_vue":1,"resources_js_views_Clients_ClientsForm_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
