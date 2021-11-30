@@ -58,6 +58,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/TitleBar */ "./resources/js/components/TitleBar.vue");
 /* harmony import */ var _components_HeroBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/HeroBar */ "./resources/js/components/HeroBar.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -242,7 +280,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.isLoading = true;
       axios.get("/admin").then(function (r) {
-        console.log(r);
         _this.isLoading = false;
 
         if (r.data && r.data.data) {
@@ -251,6 +288,27 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           _this.clients = r.data.data;
+
+          var _iterator = _createForOfIteratorHelper(_this.clients),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var element = _step.value;
+
+              if (element.memberstatus == 0) {
+                element["status"] = "active";
+              } else if (element.memberstatus == 1) {
+                element["status"] = "blocked";
+              } else {
+                element["status"] = "need activation";
+              }
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
         }
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -701,7 +759,7 @@ var render = function() {
                 {
                   attrs: {
                     "checked-rows": _vm.checkedRows,
-                    checkable: true,
+                    checkable: false,
                     loading: _vm.isLoading,
                     paginated: _vm.paginated,
                     "per-page": _vm.perPage,
@@ -721,20 +779,17 @@ var render = function() {
                 },
                 [
                   _c("b-table-column", {
-                    staticClass: "has-no-head-mobile is-image-cell",
+                    attrs: { label: "No.", field: "index", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
                         fn: function(props) {
                           return [
-                            props.row.avatar
-                              ? _c("div", { staticClass: "image" }, [
-                                  _c("img", {
-                                    staticClass: "is-rounded",
-                                    attrs: { src: props.row.avatar }
-                                  })
-                                ])
-                              : _vm._e()
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.index + 1) +
+                                "\n        "
+                            )
                           ]
                         }
                       }
@@ -742,7 +797,8 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Name", field: "name", sortable: "" },
+                    staticClass: "has-no-head-mobile is-image-cell",
+                    attrs: { label: "Name", field: "membername", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -760,46 +816,9 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Company", field: "company", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n          " +
-                                _vm._s(props.row.company) +
-                                "\n        "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "City", field: "city", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n          " +
-                                _vm._s(props.row.city) +
-                                "\n        "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    staticClass: "is-progress-col",
                     attrs: {
-                      label: "Progress",
-                      field: "progress",
+                      label: "Mobile No.",
+                      field: "mobile_no",
                       sortable: ""
                     },
                     scopedSlots: _vm._u([
@@ -807,14 +826,10 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _c(
-                              "progress",
-                              {
-                                staticClass: "progress is-small is-primary",
-                                attrs: { max: "100" },
-                                domProps: { value: props.row.progress }
-                              },
-                              [_vm._v(_vm._s(props.row.progress))]
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.mobile_no) +
+                                "\n        "
                             )
                           ]
                         }
@@ -823,19 +838,144 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Created" },
+                    attrs: { label: "Email", field: "email", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _c(
-                              "small",
-                              {
-                                staticClass: "has-text-grey is-abbr-like",
-                                attrs: { title: props.row.created }
-                              },
-                              [_vm._v(_vm._s(props.row.created))]
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.email) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Username",
+                      field: "username",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.username) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Level",
+                      field: "membertype",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.membertype) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Group", field: "groupid", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.group_name) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Target(Qty)",
+                      field: "qty_target",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.qty_target) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Target(MYR)",
+                      field: "sales_target",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.sales_target) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Status",
+                      field: "memberstatus",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.status) +
+                                "\n        "
                             )
                           ]
                         }

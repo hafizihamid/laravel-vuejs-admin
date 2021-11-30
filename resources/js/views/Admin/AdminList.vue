@@ -38,7 +38,7 @@
 
         <b-table
           :checked-rows.sync="checkedRows"
-          :checkable="true"
+          :checkable="false"
           :loading="isLoading"
           :paginated="paginated"
           :per-page="perPage"
@@ -47,49 +47,81 @@
           default-sort="name"
           :data="clients"
         >
+          <b-table-column label="No." field="index" sortable v-slot="props">
+            {{ props.index + 1 }}
+          </b-table-column>
           <b-table-column
             class="has-no-head-mobile is-image-cell"
+            label="Name"
+            field="membername"
+            sortable
             v-slot="props"
           >
-            <div v-if="props.row.avatar" class="image">
-              <img :src="props.row.avatar" class="is-rounded" />
-            </div>
-          </b-table-column>
-          <b-table-column label="Name" field="name" sortable v-slot="props">
             {{ props.row.membername }}
           </b-table-column>
+
           <b-table-column
-            label="Company"
-            field="company"
+            label="Mobile No."
+            field="mobile_no"
             sortable
             v-slot="props"
           >
-            {{ props.row.company }}
+            {{ props.row.mobile_no }}
           </b-table-column>
-          <b-table-column label="City" field="city" sortable v-slot="props">
-            {{ props.row.city }}
+
+          <b-table-column label="Email" field="email" sortable v-slot="props">
+            {{ props.row.email }}
           </b-table-column>
+
           <b-table-column
-            class="is-progress-col"
-            label="Progress"
-            field="progress"
+            label="Username"
+            field="username"
             sortable
             v-slot="props"
           >
-            <progress
-              class="progress is-small is-primary"
-              :value="props.row.progress"
-              max="100"
-              >{{ props.row.progress }}</progress
-            >
+            {{ props.row.username }}
           </b-table-column>
-          <b-table-column label="Created" v-slot="props">
-            <small
-              class="has-text-grey is-abbr-like"
-              :title="props.row.created"
-              >{{ props.row.created }}</small
-            >
+
+          <b-table-column
+            label="Level"
+            field="membertype"
+            sortable
+            v-slot="props"
+          >
+            {{ props.row.membertype }}
           </b-table-column>
+
+          <b-table-column label="Group" field="groupid" sortable v-slot="props">
+            {{ props.row.group_name }}
+          </b-table-column>
+
+          <b-table-column
+            label="Target(Qty)"
+            field="qty_target"
+            sortable
+            v-slot="props"
+          >
+            {{ props.row.qty_target }}
+          </b-table-column>
+
+          <b-table-column
+            label="Target(MYR)"
+            field="sales_target"
+            sortable
+            v-slot="props"
+          >
+            {{ props.row.sales_target }}
+          </b-table-column>
+
+          <b-table-column
+            label="Status"
+            field="memberstatus"
+            sortable
+            v-slot="props"
+          >
+            {{ props.row.status }}
+          </b-table-column>
+
           <b-table-column
             custom-key="actions"
             class="is-actions-cell"
@@ -178,13 +210,21 @@ export default {
       axios
         .get("/admin")
         .then(r => {
-          console.log(r);
           this.isLoading = false;
           if (r.data && r.data.data) {
             if (r.data.data.length > this.perPage) {
               this.paginated = true;
             }
             this.clients = r.data.data;
+            for (const element of this.clients) {
+              if (element.memberstatus == 0) {
+                element["status"] = "active";
+              } else if (element.memberstatus == 1) {
+                element["status"] = "blocked";
+              } else {
+                element["status"] = "need activation";
+              }
+            }
           }
         })
         .catch(err => {
